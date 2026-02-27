@@ -38,7 +38,7 @@ export default function App() {
     const el = document.getElementById(id);
     if (el) {
       const isMobile = window.innerWidth < 768;
-      const offset = (isMobile && id === 'contact-form') ? -40 : 80;
+      const offset = (isMobile && id === 'contact-form') ? -160 : 80;
       const y = el.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
@@ -316,13 +316,18 @@ export default function App() {
       </section>
 
       {/* Target Audience */}
-      <section className="py-24 px-6 bg-white">
-        <FadeIn className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-center">이 과정, 특히 이런 분들에게<br/>추천합니다.</h2>
-          <div className="bg-blue-50 text-blue-900 font-bold p-6 rounded-2xl mb-8 text-center">
-            "실무에서 바로 쓰이는 기술로 IT 커리어를 시작하고 싶은 분"
+      <section className="py-24 px-6 bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
+        <FadeIn className="max-w-5xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3 block">Target Audience</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-slate-900">이 과정, 특히 이런 분들에게<br/>추천합니다.</h2>
+            <div className="inline-block bg-white border border-blue-100 shadow-sm text-blue-800 font-bold px-8 py-4 rounded-full text-lg">
+              "실무에서 바로 쓰이는 기술로 IT 커리어를 시작하고 싶은 분"
+            </div>
           </div>
-          <ul className="space-y-4 max-w-2xl mx-auto">
+          
+          <div className="flex flex-wrap justify-center gap-6">
             {[
               "IT전공이 아니지만, IT분야로 커리어를 시작하고 싶은 분",
               "전공자지만 실무 경험이 부족해 고민인 분",
@@ -330,12 +335,14 @@ export default function App() {
               "여러 클라우드를 다뤄보며 폭넓은 스킬을 쌓고 싶은 분",
               "클라우드 기반 IT 인프라·자동화 기술을 경험해보고 싶은 분"
             ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <CheckCircle2 className="text-blue-600 shrink-0 mt-0.5" size={20} />
-                <span className="text-slate-700 font-medium">{item}</span>
-              </li>
+              <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-300 hover:shadow-md transition-all group flex flex-col items-center text-center w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <CheckCircle2 size={28} />
+                </div>
+                <p className="text-slate-700 font-bold text-lg leading-relaxed">{item}</p>
+              </div>
             ))}
-          </ul>
+          </div>
         </FadeIn>
       </section>
 
@@ -689,58 +696,58 @@ export default function App() {
             </div>
 
             {/* Right Form */}
-            <div className="bg-white p-8 md:p-10 rounded-3xl shadow-2xl">
-              <div className="mb-8">
+            <div className="bg-white p-6 md:p-8 rounded-3xl shadow-2xl">
+              <div className="mb-6">
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">상담 신청하기</h3>
                 <p className="text-slate-500">빠른 시일 내에 담당자가 연락드리겠습니다.</p>
               </div>
 
-              <form action="https://formspree.io/f/xreajlpg" method="POST" className="space-y-4 md:space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <form action="https://formspree.io/f/xreajlpg" method="POST" className="space-y-3 md:space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-1.5 md:mb-2">이름</label>
+                    <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">이름</label>
                     <input 
                       type="text" 
                       id="name" 
                       name="name" 
                       required 
-                      className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
                       placeholder="홍길동"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-bold text-slate-700 mb-1.5 md:mb-2">연락처</label>
+                    <label htmlFor="phone" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">연락처</label>
                     <input 
                       type="tel" 
                       id="phone" 
                       name="phone" 
                       required 
-                      className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
                       placeholder="010-0000-0000"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   <div>
-                    <label htmlFor="age" className="block text-sm font-bold text-slate-700 mb-1.5 md:mb-2">나이</label>
+                    <label htmlFor="age" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">나이</label>
                     <input 
                       type="number" 
                       id="age" 
                       name="age" 
                       required 
-                      className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
                       placeholder="25"
                     />
                   </div>
                   <div>
-                    <label htmlFor="purpose" className="block text-sm font-bold text-slate-700 mb-1.5 md:mb-2">교육목적</label>
+                    <label htmlFor="purpose" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">교육목적</label>
                     <select 
                       id="purpose" 
                       name="purpose" 
                       required
                       defaultValue=""
-                      className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white appearance-none"
+                      className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white appearance-none"
                     >
                       <option value="" disabled>선택해주세요</option>
                       <option value="취업준비">취업준비</option>
@@ -752,13 +759,13 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-1.5 md:mb-2">문의내용</label>
+                  <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">문의내용</label>
                   <textarea 
                     id="message" 
                     name="message" 
-                    rows={3} 
+                    rows={2} 
                     required
-                    className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white resize-none"
+                    className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white resize-none"
                     placeholder="궁금하신 내용을 상세히 적어주세요."
                   ></textarea>
                 </div>

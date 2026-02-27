@@ -369,7 +369,7 @@ export default function App() {
             </div>
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
+                src="https://postfiles.pstatic.net/MjAyNjAyMjdfMTUx/MDAxNzcyMTU0OTcxMTk5.I8AEmCnuQ_R8Uy_onSMvhcBRfXjnuGRdfDDAHTF1Rtcg.mrx-08SxCtbMu1HfPHxh7yNLx-33K64chYmzdeSp3UYg.JPEG/20260226_185714.jpg?type=w966" 
                 alt="Bespin Global Office" 
                 className="w-full h-full object-cover aspect-[4/3]"
                 referrerPolicy="no-referrer"
@@ -474,15 +474,28 @@ export default function App() {
           </div>
 
           {/* Extra Program */}
-          <div className="mt-24 bg-blue-950 rounded-3xl p-10 md:p-12 text-center relative overflow-hidden shadow-xl">
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+          <div className="mt-24 bg-slate-900 rounded-3xl p-10 md:p-12 relative overflow-hidden shadow-2xl border border-slate-800">
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-600/20 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/3"></div>
+            
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-8 text-white">취업 역량 향상 프로그램</h3>
-              <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-                {["AWS ASO 자격증 응시료 지원 및 특강", "베스핀글로벌 프로젝트 모범사례 특강", "AI·클라우드 최신 기술트렌드 특강", "우수수료생 베스핀글로벌 인턴십 채용"].map((item, i) => (
-                  <span key={i} className="bg-white/10 backdrop-blur-md px-6 py-3.5 rounded-full text-sm font-medium text-blue-50 border border-white/10 shadow-sm">
-                    {item}
-                  </span>
+              <div className="text-center mb-10">
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white">취업 역량 향상 프로그램</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                {[
+                  { title: "AWS ASO 자격증 응시료 지원 및 특강", icon: <Award size={24} /> },
+                  { title: "베스핀글로벌 프로젝트 모범사례 특강", icon: <Briefcase size={24} /> },
+                  { title: "AI·클라우드 최신 기술트렌드 특강", icon: <MonitorPlay size={24} /> },
+                  { title: "우수수료생 베스핀글로벌 인턴십 채용", icon: <Users size={24} /> }
+                ].map((item, i) => (
+                  <div key={i} className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800 transition-all group flex flex-col items-center text-center">
+                    <div className="w-14 h-14 bg-blue-900/50 text-blue-400 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:text-blue-300 transition-all duration-300">
+                      {item.icon}
+                    </div>
+                    <p className="text-slate-200 font-bold text-sm md:text-base leading-relaxed">{item.title}</p>
+                  </div>
                 ))}
               </div>
             </div>

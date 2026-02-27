@@ -53,14 +53,16 @@ export default function App() {
     
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
     
     try {
       const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
+        method: "POST",
         headers: {
+          "Content-Type": "application/json",
           Accept: "application/json",
         },
+        body: JSON.stringify(data),
       });
       
       if (response.ok) {

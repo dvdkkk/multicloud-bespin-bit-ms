@@ -38,7 +38,7 @@ export default function App() {
     const el = document.getElementById(id);
     if (el) {
       const isMobile = window.innerWidth < 768;
-      const offset = (isMobile && id === 'contact-form') ? -160 : 80;
+      const offset = (isMobile && id === 'contact-form') ? -400 : 80;
       const y = el.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
@@ -558,14 +558,12 @@ export default function App() {
       {/* Instructors */}
       <section id="instructors" className="py-24 px-6">
         <FadeIn className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-extrabold mb-6">베스핀글로벌 현직자가 직접<br/>가르치고 인턴으로 선발합니다</h2>
-              <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-bold">베스핀글로벌 소속 테크리더</span>
-                <span className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-bold">베스핀글로벌 소속 기술전문강사</span>
-                <span className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-bold">베스핀글로벌 인증강사</span>
-              </div>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-6">베스핀글로벌 현직자가 직접<br/>가르치고 인턴으로 선발합니다</h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              <span className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-bold">베스핀글로벌 소속 테크리더</span>
+              <span className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-bold">베스핀글로벌 소속 기술전문강사</span>
+              <span className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-bold">베스핀글로벌 인증강사</span>
             </div>
           </div>
 

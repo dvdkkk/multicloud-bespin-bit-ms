@@ -38,7 +38,7 @@ export default function App() {
     const el = document.getElementById(id);
     if (el) {
       const isMobile = window.innerWidth < 768;
-      const offset = (isMobile && id === 'contact-form') ? -600 : 80;
+      const offset = (isMobile && id === 'contact-form') ? -650 : 80;
       const y = el.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }

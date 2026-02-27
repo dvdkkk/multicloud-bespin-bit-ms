@@ -29,7 +29,7 @@ export default function CourseOverview() {
               <tr className="border-b border-gray-100">
                 <th className="py-6 px-8 bg-blue-50/50 text-[#0052cc] font-bold">교육기간</th>
                 <td className="py-6 px-8 font-bold text-gray-800">
-                  2026.04.02(목) - 2026.10.08(목), 약 6개월
+                  2026.04월 - 2026.10월, 약 6개월
                 </td>
               </tr>
               <tr className="border-b border-gray-100">

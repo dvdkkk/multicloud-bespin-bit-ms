@@ -158,10 +158,11 @@ export default function App() {
       <section className="py-24 px-6 bg-slate-50">
         <FadeIn className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-6">AI 시대의 핵심 인프라, <span className="text-blue-700">클라우드</span></h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-6">AI 시대의 핵심 인프라,<br/> <span className="text-blue-700">클라우드</span></h2>
             <p className="text-xl text-slate-600 font-medium max-w-3xl mx-auto">
-              IT직군에게 클라우드 기술역량은 선택이 아닌 필수입니다.<br/>
-              현업에서 바로 쓰는 클라우드 운영 실무, 기업이 원하는 필수 기술 역량을 완성하세요.
+              IT직군에게 클라우드 기술역량은<br/>선택이 아닌 필수입니다.<br/>
+              현업에서 바로 쓰는 클라우드 운영 실무,<br/> 
+              기업이 원하는 필수 기술 역량을 완성하세요.
             </p>
           </div>
 
@@ -211,13 +212,13 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[
-              { icon: <Briefcase/>, title: "인턴십 및 채용 우대", desc: "우수 수료생 베스핀글로벌 인턴 채용, 자사 지원 시 가점 부여" },
-              { icon: <Users/>, title: "현직자 강사 멘토", desc: "베스핀글로벌 현직자가 직접 가르치고 멘토링 (82% 이상 투입)" },
-              { icon: <Trophy/>, title: "기업주도과정 베네핏", desc: "최신 AI, 클라우드 기술변화와 트렌드를 특강으로 빠르게 학습" },
-              { icon: <MonitorPlay/>, title: "현업 동일 환경 실습", desc: "교육기간 중 AWS, Azure, GCP, NCP 클라우드 개인별 계정 사용" },
-              { icon: <Award/>, title: "매월 훈련지원금", desc: "매월 훈련금 지급 최대 90만원 (장려금 30만 + 취업지원 60만)" },
-              { icon: <BookOpen/>, title: "자격증 응시료 지원", desc: "클라우드 자격증 응시료 $150 지원 및 쪽집게 특강 제공" },
-              { icon: <Coffee/>, title: "사내 카페테리아", desc: "학습에만 전념할 수 있는 환경, 사내 카페테리아 자율 이용가능" },
+              { icon: <Briefcase/>, title: "인턴십 및 채용 우대", desc: "우수 수료생 베스핀글로벌 인턴 채용<br/>자사 지원 시 가점 부여" },
+              { icon: <Users/>, title: "현직자 강사 멘토", desc: "베스핀글로벌 현직자가 직접 가르치고<br/>멘토링 (82% 이상 투입)" },
+              { icon: <Trophy/>, title: "기업주도과정 베네핏", desc: "최신 AI, 클라우드 기술변화와 트렌드를<br/>특강으로 빠르게 학습" },
+              { icon: <MonitorPlay/>, title: "현업 동일 환경 실습", desc: "교육기간 중 AWS, Azure, GCP, NCP<br/>클라우드 개인별 계정 사용" },
+              { icon: <Award/>, title: "매월 훈련지원금", desc: "매월 훈련금 지급 최대 90만원<br/>(장려금 30만 + 취업지원 60만)" },
+              { icon: <BookOpen/>, title: "자격증 응시료 지원", desc: "클라우드 자격증 응시료 $150 지원<br/>쪽집게 특강 제공" },
+              { icon: <Coffee/>, title: "사내 카페테리아", desc: "학습에만 전념할 수 있는 환경<br/>사내 카페테리아 자율 이용가능" },
             ].map((benefit, i) => (
               <motion.div 
                 key={i} 
@@ -290,7 +291,7 @@ export default function App() {
               <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-100">
                 <div className="p-8">
                   <div className="flex items-center gap-3 text-slate-500 mb-2"><Calendar size={18}/> <span className="font-semibold text-sm">교육기간</span></div>
-                  <div className="font-bold text-lg">2026.04.02(목) ~ 2026.10.08(목)</div>
+                  <div className="font-bold text-lg">2026.04월 ~ 2026.10월</div>
                   <div className="text-slate-500 text-sm mt-1">약 6개월 과정</div>
                 </div>
                 <div className="p-8">
@@ -331,7 +332,7 @@ export default function App() {
           <div className="flex flex-wrap justify-center gap-6">
             {[
               "IT전공이 아니지만, IT분야로 커리어를 시작하고 싶은 분",
-              "전공자지만 실무 경험이 부족해 고민인 분",
+              "전공자지만 실무가 부족해 고민인 분",
               "자격증과 실무 포트폴리오로 실력을 증명하고 싶은 분",
               "여러 클라우드를 다뤄보며 폭넓은 스킬을 쌓고 싶은 분",
               "클라우드 기반 IT 인프라·자동화 기술을 경험해보고 싶은 분"
@@ -356,12 +357,13 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
-                5,000+ 엔터프라이즈가 선택한<br/>
+                5,000엔터프라이즈가 선택한<br/>
                 <span className="text-[#00A8E8]">AI · Data · Cloud 파트너</span>
               </h3>
               <p className="text-xl font-bold text-slate-900 mb-6 leading-relaxed">
                 AI·Cloud 도입부터 운영·최적화까지,<br/>
-                글로벌 전문가가 이끄는 검증된 전략을 제공합니다.
+                글로벌 전문가가 이끄는 검증된 전략을<br/>
+                제공합니다.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
                 베스핀 글로벌은 국내외 5,000여개 이상의 고객과 함께하는 AI 클라우드 매니지드 서비스(MSP) 기업입니다.<br/><br/>
@@ -403,7 +405,7 @@ export default function App() {
                     "운영체제(Windows/Linux) 기초", 
                     "데이터베이스의 이해",
                     "클라우드 인프라 엔지니어 관점의 시스템 구성 요소 이해",
-                    "클라우드 인프라 운영을 이해하기위한 서버•네트워크.DB 기초 이해"
+                    "클라우드 인프라 운영을 이해하기 위한 서버•네트워크•DB 기초 이해"
                   ]
                 },
                 {
@@ -444,7 +446,7 @@ export default function App() {
                   items: [
                     "Project 3. 클라우드 네이티브 서비스 구성 및 운영",
                     "클라우드 네이티브 아키텍처를 설계하고 운영까지 수행하는 종합 실무 역량",
-                    "멀티클라우드 환경에서 재해복구(DR)를 고려한서비스구축 및 운영역량"
+                    "멀티클라우드 환경에서 재해복구(DR)를 고려한 서비스구축 및 운영 역량"
                   ]
                 }
               ].map((phase, i) => (
@@ -671,10 +673,12 @@ export default function App() {
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
         <FadeIn className="max-w-4xl mx-auto relative z-10">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-8 leading-tight">
-            "현업 엔지니어가 아니면 모르는 '진짜기술'<br/>오직 베스핀글로벌 과정에서만 공개합니다."
+            "현업 엔지니어가 아니면<br/>
+             모르는 '진짜 기술'<br/>오직 베스핀글로벌 과정에서만 공개합니다."
           </h2>
           <p className="text-xl text-blue-100 mb-12">
-            베스핀글로벌 현직자와 함께하는 실무 중심 교육으로<br/>"멀티클라우드 엔지니어 커리어"를 시작하세요!
+            베스핀글로벌 현직자와 함께하는<br/>
+            실무 중심 교육으로<br/>"멀티클라우드 엔지니어 커리어"를 시작하세요!
           </p>
           <button 
             onClick={() => scrollTo('contact-form')}

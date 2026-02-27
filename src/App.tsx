@@ -162,7 +162,7 @@ export default function App() {
             <p className="text-xl text-slate-600 font-medium max-w-3xl mx-auto">
               IT직군에게 클라우드 기술역량은<br/>선택이 아닌 필수입니다.<br/>
               현업에서 바로 쓰는 클라우드 운영 실무,<br/> 
-              기업이 원하는 필수 기술 역량을 완성하세요.
+              기업이 원하는 필수 기술을 완성하세요.
             </p>
           </div>
 
@@ -212,13 +212,31 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[
-              { icon: <Briefcase/>, title: "인턴십 및 채용 우대", desc: "우수 수료생 베스핀글로벌 인턴 채용<br/>자사 지원 시 가점 부여" },
-              { icon: <Users/>, title: "현직자 강사 멘토", desc: "베스핀글로벌 현직자가 직접 가르치고<br/>멘토링 (82% 이상 투입)" },
-              { icon: <Trophy/>, title: "기업주도과정 베네핏", desc: "최신 AI, 클라우드 기술변화와 트렌드를<br/>특강으로 빠르게 학습" },
-              { icon: <MonitorPlay/>, title: "현업 동일 환경 실습", desc: "교육기간 중 AWS, Azure, GCP, NCP<br/>클라우드 개인별 계정 사용" },
-              { icon: <Award/>, title: "매월 훈련지원금", desc: "매월 훈련금 지급 최대 90만원<br/>(장려금 30만 + 취업지원 60만)" },
-              { icon: <BookOpen/>, title: "자격증 응시료 지원", desc: "클라우드 자격증 응시료 $150 지원<br/>쪽집게 특강 제공" },
-              { icon: <Coffee/>, title: "사내 카페테리아", desc: "학습에만 전념할 수 있는 환경<br/>사내 카페테리아 자율 이용가능" },
+              { 
+  icon: <BookOpen/>, 
+  title: "인턴십 및 채용 우대", 
+  desc: (
+    <>
+      우수 수료생 베스핀글로벌 인턴 채용<br />
+      자사 지원 시 가점 부여
+    </>
+  )
+              },
+              { icon: <Users/>, title: "현직자 강사 멘토", desc: (<>베스핀글로벌 현직자가 직접 가르치고<br/>멘토링 (82% 이상 투입)</>) },
+              { icon: <Trophy/>, title: "기업주도과정 베네핏", desc: (<>최신 AI, 클라우드 기술변화와 트렌드를<br/>특강으로 빠르게 학습</>) },
+              { icon: <MonitorPlay/>, title: "현업 동일 환경 실습", desc: (<>교육기간 중 AWS, Azure, GCP, NCP<br/>클라우드 개인별 계정 사용</>) },
+              { icon: <Award/>, title: "매월 훈련지원금", desc: (<>매월 훈련금 지급 최대 90만원<br/>(장려금 30만 + 취업지원 60만)</>) },
+              { 
+  icon: <BookOpen/>, 
+  title: "자격증 응시료 지원", 
+  desc: (
+    <>
+      클라우드 자격증 응시료 $150 지원<br/>
+      쪽집게 특강 제공
+    </>
+  )
+             },
+              { icon: <Coffee/>, title: "사내 카페테리아", desc: (<>학습에만 전념할 수 있는 환경<br/>사내 카페테리아 자율 이용가능</>) },
             ].map((benefit, i) => (
               <motion.div 
                 key={i} 
@@ -392,7 +410,7 @@ export default function App() {
 
           <div className="relative">
             {/* Vertical Line */}
-            <div className="absolute left-[27px] md:left-[39px] top-8 bottom-8 w-0.5 bg-blue-200"></div>
+
             
             <div className="space-y-12">
               {[

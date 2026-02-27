@@ -319,7 +319,7 @@ export default function App() {
       <section className="py-24 px-6 bg-slate-50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
         <FadeIn className="max-w-5xl mx-auto relative z-10">
-          <div className="text-left mb-16">
+          <div className="text-center mb-16">
             <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3 block">Target Audience</span>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-slate-900">이 과정, 특히 이런 분들에게<br/>추천합니다.</h2>
             <div className="inline-block bg-white border border-blue-100 shadow-sm text-blue-800 font-bold px-8 py-4 rounded-full text-lg">

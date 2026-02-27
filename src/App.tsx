@@ -54,9 +54,12 @@ export default function App() {
     const formData = new FormData(e.currentTarget);
     
     try {
-      const response = await fetch("https://formsubmit.co/el/yuxasa", {
+      const response = await fetch("https://www.formingo.co/submit/3646198d-6b7a-4248-b1db-f94d7c8727b4", {
         method: "POST",
         body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
       if (response.ok) {

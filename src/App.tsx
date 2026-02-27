@@ -396,27 +396,55 @@ export default function App() {
                 {
                   step: "01",
                   title: "클라우드 학습을 위한 기본기 다지기",
-                  items: ["클라우드 및 인프라 엔지니어의 이해", "네트워크 기본 이해", "운영체제(Windows/Linux) 기초", "데이터베이스의 이해"]
+                  items: [
+                    "클라우드 및 인프라 엔지니어의 이해", 
+                    "네트워크 기본 이해", 
+                    "운영체제(Windows/Linux) 기초", 
+                    "데이터베이스의 이해",
+                    "클라우드 인프라 엔지니어 관점의 시스템 구성 요소 이해",
+                    "클라우드 인프라 운영을 이해하기위한 서버•네트워크.DB 기초 이해"
+                  ]
                 },
                 {
                   step: "02",
                   title: "4대 클라우드 역량 확보",
-                  items: ["AWS, Azure, GCP, NCP 클라우드 서비스", "Project 1. 3-Tier 클라우드 인프라 구축"]
+                  items: [
+                    "AWS, Azure, GCP, NCP 클라우드 서비스", 
+                    "Project 1. 3-Tier 클라우드 인프라 구축",
+                    "주요 CSP 환경에서 인프라 설계•구축 역량",
+                    "3-Tier 아키텍처실전 구축 경험 및 네트워크•보안•운영 관점 이해"
+                  ]
                 },
                 {
                   step: "03",
                   title: "컨테이너 환경 구축",
-                  items: ["Docker", "Kubernetes", "Project 2. MSA 애플리케이션 구축 운영"]
+                  items: [
+                    "Docker", 
+                    "Kubernetes", 
+                    "Project 2. MSA 애플리케이션 구축 운영",
+                    "확장성과 안정성을 고려한 Kubernetes 클러스터 구성 역량",
+                    "컨테이너 기반 애플리케이션을 Kubernetes 환경에서 운영•관리하는 역량"
+                  ]
                 },
                 {
                   step: "04",
                   title: "자동화 및 운영 고도화",
-                  items: ["Terraform", "모니터링", "CI/CD"]
+                  items: [
+                    "Terraform", 
+                    "모니터링", 
+                    "CI/CD",
+                    "laC를 활용한 인프라 구축 자동화 역량",
+                    "DevOps 기반배포•운영실무역량"
+                  ]
                 },
                 {
                   step: "05",
                   title: "클라우드 네이티브 서비스 구성",
-                  items: ["Project 3. 클라우드 네이티브 서비스 구성 및 운영"]
+                  items: [
+                    "Project 3. 클라우드 네이티브 서비스 구성 및 운영",
+                    "클라우드 네이티브 아키텍처를 설계하고 운영까지 수행하는 종합 실무 역량",
+                    "멀티클라우드 환경에서 재해복구(DR)를 고려한서비스구축 및 운영역량"
+                  ]
                 }
               ].map((phase, i) => (
                 <div key={i} className="relative flex gap-4 md:gap-10 items-start group">
@@ -435,7 +463,7 @@ export default function App() {
                       {phase.items.map((item, j) => (
                         <li key={j} className="flex items-start gap-3 text-slate-700 font-medium text-sm md:text-base">
                           <CheckCircle2 className="text-blue-500 shrink-0 mt-0.5" size={20} />
-                          <span>{item}</span>
+                          <span className={item.startsWith('Project') ? 'text-blue-600 font-bold' : ''}>{item}</span>
                         </li>
                       ))}
                     </ul>

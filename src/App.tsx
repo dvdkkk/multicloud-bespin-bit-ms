@@ -25,6 +25,8 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +45,31 @@ export default function App() {
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch("https://formsubmit.co/el/yuxasa", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert("전송 중 오류가 발생했습니다. 다시 시도해주세요.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("전송 중 오류가 발생했습니다. 다시 시도해주세요.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -763,132 +790,149 @@ export default function App() {
                 <p className="text-slate-500">빠른 시일 내에 담당자가 연락드리겠습니다.</p>
               </div>
 
-              <form action="https://formsubmit.co/el/yuxasa" method="POST" className="space-y-3 md:space-y-4">
-                <input type="hidden" name="_subject" value="베스핀글로벌 부트캠프 상담 신청" />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">이름</label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      name="name" 
-                      required 
-                      className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
-                      placeholder="홍길동"
-                    />
+              {isSubmitted ? (
+                <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 text-center py-12">
+                  <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle2 size={32} />
                   </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">연락처</label>
-                    <input 
-                      type="tel" 
-                      id="phone" 
-                      name="phone" 
-                      required 
-                      className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
-                      placeholder="010-0000-0000"
-                    />
-                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">문의 신청 완료되었습니다.</h3>
+                  <p className="text-slate-600">빠른 시일 내에 담당자가 연락드리겠습니다.</p>
+                  <button 
+                    onClick={() => setIsSubmitted(false)}
+                    className="mt-6 text-blue-600 font-bold hover:underline"
+                  >
+                    추가 문의하기
+                  </button>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                  <div>
-                    <label htmlFor="age" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">나이</label>
-                    <input 
-                      type="number" 
-                      id="age" 
-                      name="age" 
-                      required 
-                      className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
-                      placeholder="25"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="purpose" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">교육목적</label>
-                    <select 
-                      id="purpose" 
-                      name="purpose" 
-                      required
-                      defaultValue=""
-                      className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white appearance-none"
-                    >
-                      <option value="" disabled>선택해주세요</option>
-                      <option value="취업준비">취업준비</option>
-                      <option value="직무전환">직무전환 (커리어 체인지)</option>
-                      <option value="역량강화">현재 직무 역량 강화</option>
-                      <option value="기타">기타</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">문의내용</label>
-                  <textarea 
-                    id="message" 
-                    name="message" 
-                    rows={2} 
-                    required
-                    className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white resize-none"
-                    placeholder="궁금하신 내용을 상세히 적어주세요."
-                  ></textarea>
-                </div>
-
-                {/* Privacy Policy Checkbox */}
-                <div className="flex flex-col gap-3 p-3 md:p-4 bg-slate-50 rounded-xl border border-slate-100">
-                  <div className="flex items-start gap-3">
-                    <div className="flex items-center h-5">
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+                  <input type="hidden" name="_subject" value="베스핀글로벌 부트캠프 상담 신청" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">이름</label>
                       <input 
-                        id="privacy" 
-                        name="privacy" 
-                        type="checkbox" 
-                        required
-                        defaultChecked
-                        className="w-5 h-5 border border-slate-300 rounded bg-white checked:bg-blue-600 checked:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all cursor-pointer accent-blue-600"
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required 
+                        className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
+                        placeholder="홍길동"
                       />
                     </div>
-                    <div className="text-sm flex-1">
-                      <div className="flex items-center justify-between">
-                        <label htmlFor="privacy" className="font-medium text-slate-700 cursor-pointer">
-                          개인정보 수집 및 이용 동의 (필수)
-                        </label>
-                        <button 
-                          type="button" 
-                          onClick={() => setIsPrivacyOpen(!isPrivacyOpen)}
-                          className="text-xs text-slate-500 hover:text-blue-600 flex items-center gap-1 font-medium transition-colors"
-                        >
-                          자세히 보기 {isPrivacyOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-                        </button>
-                      </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">연락처</label>
+                      <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        required 
+                        className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
+                        placeholder="010-0000-0000"
+                      />
                     </div>
                   </div>
-                  
-                  {isPrivacyOpen && (
-                    <div className="mt-2 p-4 bg-white border border-slate-200 rounded-lg text-xs text-slate-600 leading-relaxed">
-                      <p className="font-bold mb-2 text-slate-800">BESPINGLOBAL x BIT 비트교육센터 실시간온라인문의 신청을 위해 다음과 같이 개인정보를 수집 및 이용합니다.</p>
-                      <ul className="space-y-2">
-                        <li className="flex gap-2">
-                          <span className="font-bold text-slate-700 shrink-0 w-16">수집목적</span>
-                          <span>온라인문의</span>
-                        </li>
-                        <li className="flex gap-2">
-                          <span className="font-bold text-slate-700 shrink-0 w-16">수집항목</span>
-                          <span>이름, 나이, 연락처, 교육목적, 문의내용</span>
-                        </li>
-                        <li className="flex gap-2">
-                          <span className="font-bold text-slate-700 shrink-0 w-16">보유기간</span>
-                          <span>60일</span>
-                        </li>
-                      </ul>
-                    </div>
-                  )}
-                </div>
 
-                <button 
-                  type="submit" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-base md:text-lg py-3.5 md:py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-600/30 flex items-center justify-center gap-2"
-                >
-                  문의 접수하기 <ArrowRight size={20} />
-                </button>
-              </form>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                    <div>
+                      <label htmlFor="age" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">나이</label>
+                      <input 
+                        type="number" 
+                        id="age" 
+                        name="age" 
+                        required 
+                        className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
+                        placeholder="25"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="purpose" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">교육목적</label>
+                      <select 
+                        id="purpose" 
+                        name="purpose" 
+                        required
+                        defaultValue=""
+                        className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white appearance-none"
+                      >
+                        <option value="" disabled>선택해주세요</option>
+                        <option value="취업준비">취업준비</option>
+                        <option value="직무전환">직무전환 (커리어 체인지)</option>
+                        <option value="역량강화">현재 직무 역량 강화</option>
+                        <option value="기타">기타</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">문의내용</label>
+                    <textarea 
+                      id="message" 
+                      name="message" 
+                      rows={2} 
+                      required
+                      className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white resize-none"
+                      placeholder="궁금하신 내용을 상세히 적어주세요."
+                    ></textarea>
+                  </div>
+
+                  {/* Privacy Policy Checkbox */}
+                  <div className="flex flex-col gap-3 p-3 md:p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <div className="flex items-start gap-3">
+                      <div className="flex items-center h-5">
+                        <input 
+                          id="privacy" 
+                          name="privacy" 
+                          type="checkbox" 
+                          required
+                          defaultChecked
+                          className="w-5 h-5 border border-slate-300 rounded bg-white checked:bg-blue-600 checked:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all cursor-pointer accent-blue-600"
+                        />
+                      </div>
+                      <div className="text-sm flex-1">
+                        <div className="flex items-center justify-between">
+                          <label htmlFor="privacy" className="font-medium text-slate-700 cursor-pointer">
+                            개인정보 수집 및 이용 동의 (필수)
+                          </label>
+                          <button 
+                            type="button" 
+                            onClick={() => setIsPrivacyOpen(!isPrivacyOpen)}
+                            className="text-xs text-slate-500 hover:text-blue-600 flex items-center gap-1 font-medium transition-colors"
+                          >
+                            자세히 보기 {isPrivacyOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {isPrivacyOpen && (
+                      <div className="mt-2 p-4 bg-white border border-slate-200 rounded-lg text-xs text-slate-600 leading-relaxed">
+                        <p className="font-bold mb-2 text-slate-800">BESPINGLOBAL x BIT 비트교육센터 실시간온라인문의 신청을 위해 다음과 같이 개인정보를 수집 및 이용합니다.</p>
+                        <ul className="space-y-2">
+                          <li className="flex gap-2">
+                            <span className="font-bold text-slate-700 shrink-0 w-16">수집목적</span>
+                            <span>온라인문의</span>
+                          </li>
+                          <li className="flex gap-2">
+                            <span className="font-bold text-slate-700 shrink-0 w-16">수집항목</span>
+                            <span>이름, 나이, 연락처, 교육목적, 문의내용</span>
+                          </li>
+                          <li className="flex gap-2">
+                            <span className="font-bold text-slate-700 shrink-0 w-16">보유기간</span>
+                            <span>60일</span>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white font-bold text-base md:text-lg py-3.5 md:py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-600/30 flex items-center justify-center gap-2"
+                  >
+                    {isSubmitting ? '전송 중...' : '문의 접수하기'} {!isSubmitting && <ArrowRight size={20} />}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </FadeIn>

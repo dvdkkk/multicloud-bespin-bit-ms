@@ -131,9 +131,10 @@ export default function App() {
               성장하세요.
             </h1>
             <p className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed mb-12 max-w-2xl">
-              베스핀글로벌 현직자 테크리더 그룹이 신입 채용 기준으로 커리큘럼을 설계하고 직접 강의합니다. 어떤 전공에서 시작해도 6개월 후 실무형 인재로 거듭납니다.
+              베스핀글로벌 현직자 테크리더 그룹이 신입 채용 기준으로<br/>
+              커리큘럼을 설계하고 직접 강의합니다.<br/>
+              어떤 전공에서 시작해도 6개월 후 실무형 인재로 거듭납니다.
             </p>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-slate-200 w-full max-w-4xl">
               {[
                 { icon: <Cloud/>, title: "개인별 4대 클라우드 계정제공", desc: "개인별 실습 환경 제공" },

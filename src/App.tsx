@@ -193,13 +193,18 @@ export default function App() {
       </section>
 
       {/* Benefits */}
-      <section id="benefits" className="py-24 px-6 bg-slate-50">
-        <FadeIn className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3 block">Why this course?</span>
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-slate-900">이 과정이 특별한 이유</h2>
-            <p className="text-xl text-slate-600">최적의 교육환경에서 기업이 원하는 실무 역량을 키우세요</p>
-          </div>
+      <section id="benefits" className="py-24 px-6 bg-slate-900 relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] translate-y-1/3 -translate-x-1/3"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <FadeIn className="text-center mb-16">
+            <span className="text-blue-400 font-bold tracking-wider uppercase text-sm mb-3 block">Why this course?</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-white">이 과정이 특별한 이유</h2>
+            <p className="text-xl text-slate-300">최적의 교육환경에서 기업이 원하는 실무 역량을 키우세요</p>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[
@@ -211,25 +216,44 @@ export default function App() {
               { icon: <BookOpen/>, title: "자격증 응시료 지원", desc: "클라우드 자격증 응시료 $150 지원 및 쪽집게 특강 제공" },
               { icon: <Coffee/>, title: "사내 카페테리아", desc: "학습에만 전념할 수 있는 환경, 사내 카페테리아 자율 이용가능" },
             ].map((benefit, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition-colors group">
-                <div className="text-blue-200 group-hover:text-blue-600 transition-colors mb-6">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-3xl shadow-lg border border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800 transition-all group"
+              >
+                <div className="text-blue-400 group-hover:text-blue-300 transition-colors mb-6 transform group-hover:scale-110 duration-300 origin-left">
                   {React.cloneElement(benefit.icon as React.ReactElement, { size: 32 })}
                 </div>
-                <div className="text-sm font-black text-slate-300 mb-2">0{i+1}</div>
-                <h3 className="text-lg font-bold mb-3">{benefit.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{benefit.desc}</p>
-              </div>
+                <div className="text-sm font-black text-slate-600 mb-2">0{i+1}</div>
+                <h3 className="text-lg font-bold mb-3 text-white">{benefit.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{benefit.desc}</p>
+              </motion.div>
             ))}
             
             {/* Government Support Card */}
-            <div className="bg-gradient-to-br from-blue-900 to-blue-950 p-8 rounded-3xl shadow-lg text-white flex flex-col justify-center">
-              <h3 className="text-xl font-bold mb-4">국민내일배움카드<br/>정부지원 수강</h3>
-              <p className="text-blue-200 text-sm leading-relaxed">
-                본 과정은 정부지원 교육으로 수강 가능하며, 개인별 유형에 따라 일부 자부담이 발생할 수 있습니다.
-              </p>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              whileHover={{ scale: 1.02 }}
+              className="bg-gradient-to-br from-blue-600 to-blue-800 p-8 rounded-3xl shadow-xl text-white flex flex-col justify-center relative overflow-hidden group"
+            >
+              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+              <div className="absolute right-0 bottom-0 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative z-10">
+                <h3 className="text-xl font-bold mb-4">국민내일배움카드<br/>정부지원 수강</h3>
+                <p className="text-blue-100 text-sm leading-relaxed">
+                  본 과정은 정부지원 교육으로 수강 가능하며, 개인별 유형에 따라 일부 자부담이 발생할 수 있습니다.
+                </p>
+              </div>
+            </motion.div>
           </div>
-        </FadeIn>
+        </div>
       </section>
 
       {/* Course Overview */}

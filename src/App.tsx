@@ -53,22 +53,22 @@ export default function App() {
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden lg:flex gap-8 font-semibold text-sm text-slate-700 items-center">
-            <button onClick={() => scrollTo('benefits')} className="hover:text-blue-600 transition-colors">수강혜택</button>
-            <button onClick={() => scrollTo('overview')} className="hover:text-blue-600 transition-colors">과정정보</button>
-            <button onClick={() => scrollTo('roadmap')} className="hover:text-blue-600 transition-colors">커리큘럼</button>
-            <button onClick={() => scrollTo('projects')} className="hover:text-blue-600 transition-colors">실무프로젝트</button>
-            <button onClick={() => scrollTo('instructors')} className="hover:text-blue-600 transition-colors">강사진</button>
-            <button onClick={() => scrollTo('career')} className="hover:text-blue-600 transition-colors">취업지원</button>
-            <button onClick={() => scrollTo('reviews')} className="hover:text-blue-600 transition-colors">수강후기</button>
-            <button onClick={() => scrollTo('contact-form')} className="bg-blue-950 hover:bg-blue-900 text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg shadow-blue-900/20 flex items-center gap-2">
+          <div className="hidden md:flex gap-3 lg:gap-8 font-semibold text-xs lg:text-sm text-slate-700 items-center">
+            <button onClick={() => scrollTo('benefits')} className="hover:text-blue-600 transition-colors whitespace-nowrap">수강혜택</button>
+            <button onClick={() => scrollTo('overview')} className="hover:text-blue-600 transition-colors whitespace-nowrap">과정정보</button>
+            <button onClick={() => scrollTo('roadmap')} className="hover:text-blue-600 transition-colors whitespace-nowrap">커리큘럼</button>
+            <button onClick={() => scrollTo('projects')} className="hover:text-blue-600 transition-colors whitespace-nowrap">실무프로젝트</button>
+            <button onClick={() => scrollTo('instructors')} className="hover:text-blue-600 transition-colors whitespace-nowrap">강사진</button>
+            <button onClick={() => scrollTo('career')} className="hover:text-blue-600 transition-colors whitespace-nowrap">취업지원</button>
+            <button onClick={() => scrollTo('reviews')} className="hover:text-blue-600 transition-colors whitespace-nowrap">수강후기</button>
+            <button onClick={() => scrollTo('contact-form')} className="bg-blue-950 hover:bg-blue-900 text-white px-4 py-2 lg:px-6 lg:py-2.5 rounded-full font-bold transition-all shadow-lg shadow-blue-900/20 flex items-center gap-1 lg:gap-2 whitespace-nowrap">
               교육문의 <ArrowRight size={16} />
             </button>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="lg:hidden p-2 text-slate-600 hover:text-blue-600 transition-colors"
+            className="md:hidden p-2 text-slate-600 hover:text-blue-600 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -77,7 +77,7 @@ export default function App() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-lg py-4 px-6 flex flex-col gap-4">
+          <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-lg py-4 px-6 flex flex-col gap-4">
             <button onClick={() => scrollTo('benefits')} className="text-left font-semibold text-slate-700 hover:text-blue-600 py-2 border-b border-slate-50">수강혜택</button>
             <button onClick={() => scrollTo('overview')} className="text-left font-semibold text-slate-700 hover:text-blue-600 py-2 border-b border-slate-50">과정정보</button>
             <button onClick={() => scrollTo('roadmap')} className="text-left font-semibold text-slate-700 hover:text-blue-600 py-2 border-b border-slate-50">커리큘럼</button>
@@ -95,9 +95,9 @@ export default function App() {
       {/* Floating Contact Button */}
       <button 
         onClick={() => scrollTo('contact-form')}
-        className="fixed bottom-6 right-6 z-50 bg-blue-600 text-white px-6 py-4 rounded-full shadow-2xl hover:bg-blue-700 hover:scale-110 transition-all duration-300 flex items-center justify-center gap-2.5 group translate-y-0 opacity-100"
+        className="fixed bottom-6 right-6 z-50 bg-blue-600 text-white px-5 py-3 md:px-6 md:py-4 rounded-full shadow-2xl hover:bg-blue-700 hover:scale-110 transition-all duration-300 flex items-center justify-center gap-2.5 group translate-y-0 opacity-100"
       >
-        <MessageCircle size={28} />
+        <MessageCircle size={28} className="hidden md:block" />
         <span className="font-bold text-lg">문의</span>
       </button>
 

@@ -763,7 +763,7 @@ export default function App() {
                 <p className="text-slate-500">빠른 시일 내에 담당자가 연락드리겠습니다.</p>
               </div>
 
-              <form action="https://formspree.io/f/xreajlpg" method="POST" className="space-y-3 md:space-y-4">
+              <form action="https://formsubmit.co/el/yuxasa" method="POST" className="space-y-3 md:space-y-4">
                 <input type="hidden" name="_subject" value="베스핀글로벌 부트캠프 상담 신청" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   <div>

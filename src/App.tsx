@@ -402,10 +402,10 @@ export default function App() {
                   items: [
                     "클라우드 및 인프라 엔지니어의 이해", 
                     "네트워크 기본 이해", 
-                    "운영체제(Windows/Linux) 기초", 
+                    "운영체제(윈도우/리눅스) 기초", 
                     "데이터베이스의 이해",
                     "클라우드 인프라 엔지니어 관점의 시스템 구성 요소 이해",
-                    "클라우드 인프라 운영을 이해하기 위한 서버•네트워크•DB 기초 이해"
+                    "클라우드 인프라 운영을 위한 서버•네트워크•DB 기초 이해"
                   ]
                 },
                 {
@@ -488,7 +488,7 @@ export default function App() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {[
-                  { title: "AWS ASO 자격증 응시료 지원 및 특강", icon: <Award size={24} /> },
+                  { title: "AWS ASO 자격증 응시료 지원/특강", icon: <Award size={24} /> },
                   { title: "베스핀글로벌 프로젝트 모범사례 특강", icon: <Briefcase size={24} /> },
                   { title: "AI·클라우드 최신 기술트렌드 특강", icon: <MonitorPlay size={24} /> },
                   { title: "우수수료생 베스핀글로벌 인턴십 채용", icon: <Users size={24} /> }
@@ -522,13 +522,13 @@ export default function App() {
             {[
               {
                 num: "1",
-                title: "3-Tier 클라우드 인프라 구축",
+                title: "3-Tier 클라우드인프라구축",
                 desc: "네트워크, 서버, 데이터베이스의 역할과 연동 방식을 이해하고 클라우드 환경에서 Web-WAS-DB 구조의 3-Tier 인프라를 직접 설계·구축·운영합니다.",
                 outcome: "기업 서비스의 기본 인프라 구조와 운영 흐름 체득"
               },
               {
                 num: "2",
-                title: "MSA 애플리케이션 구축 운영",
+                title: "MSA애플리케이션구축 운영",
                 desc: "Kubernetes를 활용해 컨테이너 기반 MSA 애플리케이션을 구성하고, 개인별로 Kubernetes 클러스터를 구성하여 배포·확장·운영까지 전 과정을 직접 수행합니다.",
                 outcome: "컨테이너 환경에서의 서비스 운영 방식과 확장성 개념 이해"
               },
@@ -562,7 +562,7 @@ export default function App() {
       <section id="instructors" className="py-24 px-6">
         <FadeIn className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-6">베스핀글로벌 현직자가 직접<br/>가르치고 인턴으로 선발합니다</h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-6">베스핀글로벌 현직자가<br/>직접 가르치고 인턴으로 선발합니다</h2>
             <div className="flex flex-wrap justify-center gap-3">
               <span className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-bold">베스핀글로벌 소속 테크리더</span>
               <span className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-bold">베스핀글로벌 소속 기술전문강사</span>
@@ -580,7 +580,7 @@ export default function App() {
               { name: "김O룡", role: "베스핀글로벌 SRE 4팀 팀장" },
               { name: "유O혁", role: "베스핀글로벌 SRE 4팀 과장" },
               { name: "박O훈", role: "베스핀글로벌 Cloud Infra팀 과장" },
-              { name: "류O석", role: "베스핀글로벌 아카데미팀 부장 (기술 전문 강사)" }
+              { name: "류O석", role: "베스핀글로벌 아카데미팀 부장(기술전문강사)" }
             ].map((instructor, i) => (
               <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 hover:bg-slate-50 transition-colors">
                 <div className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center text-slate-400 font-bold">
@@ -633,7 +633,7 @@ export default function App() {
             </div>
 
             <div className="bg-slate-800 p-10 rounded-3xl border border-slate-700">
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3"><Users className="text-blue-400"/> 끝까지 책임지는 사후관리</h3>
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3"><Users className="text-blue-400"/> 수료 후에도 사후관리</h3>
               <p className="text-slate-300 leading-relaxed">
                 수료 후에도 월 1~2회 유선/메신저 상담을 통해 직장 적응을 돕고, 이직/전직 시 맞춤형 컨설팅을 진행합니다.
               </p>
@@ -678,7 +678,7 @@ export default function App() {
           </h2>
           <p className="text-xl text-blue-100 mb-12">
             베스핀글로벌 현직자와 함께하는<br/>
-            실무 중심 교육으로<br/>"멀티클라우드 엔지니어 커리어"를 시작하세요!
+            실무 중심 교육으로<br/>"멀티클라우드 엔지니어 커리어"를<br/>시작하세요!
           </p>
           <button 
             onClick={() => scrollTo('contact-form')}
@@ -705,11 +705,10 @@ export default function App() {
               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
                 망설이지 마세요.<br/>
                 <span className="text-blue-400">클라우드 전문가가</span><br/>
-                친절하게 안내해드립니다.
+                상세히 안내해드립니다.
               </h2>
               <p className="text-xl text-blue-200 mb-12 leading-relaxed">
-                국비지원 자격 여부부터 취업 및 교육과정까지<br/>
-                무료로 상담해드립니다.
+                국비지원 자격 여부부터 취업 및 교육과정까지 무료로 상담해드립니다.
               </p>
 
               <div className="space-y-8">

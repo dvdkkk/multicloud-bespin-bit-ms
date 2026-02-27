@@ -763,8 +763,21 @@ export default function App() {
                 <p className="text-slate-500">빠른 시일 내에 담당자가 연락드리겠습니다.</p>
               </div>
 
-              <form action="https://formspree.io/f/xreajlpg" method="POST" className="space-y-3 md:space-y-4">
+              <form action="https://submit-form.com/QUP7IIe7z" method="POST" className="space-y-3 md:space-y-4">
                 <input type="hidden" name="_subject" value="베스핀글로벌 부트캠프 상담 신청" />
+                
+                <div>
+                  <label htmlFor="course" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">과정명</label>
+                  <select 
+                    id="course" 
+                    name="course" 
+                    defaultValue="멀티클라우드 베스핀글로벌"
+                    className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white appearance-none"
+                  >
+                    <option value="멀티클라우드 베스핀글로벌">멀티클라우드 베스핀글로벌</option>
+                  </select>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">이름</label>

@@ -319,7 +319,7 @@ export default function App() {
       <section className="py-24 px-6 bg-slate-50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
         <FadeIn className="max-w-5xl mx-auto relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-left mb-16">
             <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3 block">Target Audience</span>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-slate-900">이 과정, 특히 이런 분들에게<br/>추천합니다.</h2>
             <div className="inline-block bg-white border border-blue-100 shadow-sm text-blue-800 font-bold px-8 py-4 rounded-full text-lg">
@@ -335,7 +335,7 @@ export default function App() {
               "여러 클라우드를 다뤄보며 폭넓은 스킬을 쌓고 싶은 분",
               "클라우드 기반 IT 인프라·자동화 기술을 경험해보고 싶은 분"
             ].map((item, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-300 hover:shadow-md transition-all group flex flex-col items-center text-center w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-300 hover:shadow-md transition-all group flex flex-col items-start text-left w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <CheckCircle2 size={28} />
                 </div>
@@ -490,7 +490,7 @@ export default function App() {
                   { title: "AI·클라우드 최신 기술트렌드 특강", icon: <MonitorPlay size={24} /> },
                   { title: "우수수료생 베스핀글로벌 인턴십 채용", icon: <Users size={24} /> }
                 ].map((item, i) => (
-                  <div key={i} className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800 transition-all group flex flex-col items-center text-center">
+                  <div key={i} className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800 transition-all group flex flex-col items-start text-left">
                     <div className="w-14 h-14 bg-blue-900/50 text-blue-400 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:text-blue-300 transition-all duration-300">
                       {item.icon}
                     </div>
@@ -571,15 +571,15 @@ export default function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { name: "김O철", role: "Google PS팀 팀장" },
-              { name: "신O범", role: "Google TS팀/MSP팀 팀장" },
-              { name: "김O영", role: "Google MSP팀 부장" },
-              { name: "양O현", role: "Developer팀 팀장" },
-              { name: "전O진", role: "SRE 2팀 팀장" },
-              { name: "김O룡", role: "SRE 4팀 팀장" },
-              { name: "유O혁", role: "SRE 4팀 과장" },
-              { name: "박O훈", role: "Cloud Infra팀 과장" },
-              { name: "류O석", role: "아카데미팀 부장 (기술 전문 강사)" }
+              { name: "김O철", role: "베스핀글로벌 Google PS팀 팀장" },
+              { name: "신O범", role: "베스핀글로벌 Google TS팀/MSP팀 팀장" },
+              { name: "김O영", role: "베스핀글로벌 Google MSP팀 부장" },
+              { name: "양O현", role: "베스핀글로벌 Developer팀 팀장" },
+              { name: "전O진", role: "베스핀글로벌 SRE 2팀 팀장" },
+              { name: "김O룡", role: "베스핀글로벌 SRE 4팀 팀장" },
+              { name: "유O혁", role: "베스핀글로벌 SRE 4팀 과장" },
+              { name: "박O훈", role: "베스핀글로벌 Cloud Infra팀 과장" },
+              { name: "류O석", role: "베스핀글로벌 아카데미팀 부장 (기술 전문 강사)" }
             ].map((instructor, i) => (
               <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 hover:bg-slate-50 transition-colors">
                 <div className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center text-slate-400 font-bold">

@@ -764,6 +764,7 @@ export default function App() {
               </div>
 
               <form action="https://formspree.io/f/xreajlpg" method="POST" className="space-y-3 md:space-y-4">
+                <input type="hidden" name="_subject" value="베스핀글로벌 부트캠프 상담 신청" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">이름</label>

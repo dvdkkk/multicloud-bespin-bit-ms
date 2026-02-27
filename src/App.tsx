@@ -598,7 +598,7 @@ export default function App() {
               { name: "김O룡", role: "베스핀글로벌 SRE 4팀 팀장" },
               { name: "유O혁", role: "베스핀글로벌 SRE 4팀 과장" },
               { name: "박O훈", role: "베스핀글로벌 Cloud Infra팀 과장" },
-              { name: "류O석", role: "베스핀글로벌 아카데미팀 부장(기술전문강사)" }
+              { name: "류O석", role: "베스핀글로벌 아카데미팀 부장(기술강사)" }
             ].map((instructor, i) => (
               <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 hover:bg-slate-50 transition-colors">
                 <div className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center text-slate-400 font-bold">

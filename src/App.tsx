@@ -47,15 +47,34 @@ export default function App() {
     setIsMobileMenuOpen(false);
   };
 
-  const handleIframeLoad = () => {
-    if (isSubmitting) {
-      setIsSubmitted(true);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    
+    try {
+      const response = await fetch("https://submit-form.com/QUP7IIe7z", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert("전송 중 오류가 발생했습니다. 다시 시도해주세요.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("전송 중 오류가 발생했습니다. 다시 시도해주세요.");
+    } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleSubmit = () => {
-    setIsSubmitting(true);
   };
 
   return (
@@ -791,16 +810,8 @@ export default function App() {
                   </button>
                 </div>
               ) : (
-                <>
-                  <iframe name="hidden_iframe" id="hidden_iframe" style={{ display: 'none' }} onLoad={handleIframeLoad}></iframe>
-                  <form 
-                    action="https://www.formingo.co/submit/3646198d-6b7a-4248-b1db-f94d7c8727b4" 
-                    method="POST" 
-                    target="hidden_iframe"
-                    onSubmit={handleSubmit} 
-                    className="space-y-3 md:space-y-4"
-                  >
-                    <input type="hidden" name="_subject" value="베스핀글로벌 부트캠프 상담 신청" />
+                <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+                  <input type="hidden" name="_subject" value="베스핀글로벌 부트캠프 상담 신청" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">이름</label>
@@ -926,7 +937,6 @@ export default function App() {
                     {isSubmitting ? '전송 중...' : '문의 접수하기'} {!isSubmitting && <ArrowRight size={20} />}
                   </button>
                 </form>
-                </>
               )}
             </div>
           </div>

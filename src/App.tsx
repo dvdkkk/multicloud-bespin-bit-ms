@@ -37,7 +37,9 @@ export default function App() {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      const isMobile = window.innerWidth < 768;
+      const offset = (isMobile && id === 'contact-form') ? -40 : 80;
+      const y = el.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
@@ -693,52 +695,52 @@ export default function App() {
                 <p className="text-slate-500">빠른 시일 내에 담당자가 연락드리겠습니다.</p>
               </div>
 
-              <form action="https://formspree.io/f/xreajlpg" method="POST" className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form action="https://formspree.io/f/xreajlpg" method="POST" className="space-y-4 md:space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-2">이름</label>
+                    <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-1.5 md:mb-2">이름</label>
                     <input 
                       type="text" 
                       id="name" 
                       name="name" 
                       required 
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
                       placeholder="홍길동"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-bold text-slate-700 mb-2">연락처</label>
+                    <label htmlFor="phone" className="block text-sm font-bold text-slate-700 mb-1.5 md:mb-2">연락처</label>
                     <input 
                       type="tel" 
                       id="phone" 
                       name="phone" 
                       required 
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
                       placeholder="010-0000-0000"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div>
-                    <label htmlFor="age" className="block text-sm font-bold text-slate-700 mb-2">나이</label>
+                    <label htmlFor="age" className="block text-sm font-bold text-slate-700 mb-1.5 md:mb-2">나이</label>
                     <input 
                       type="number" 
                       id="age" 
                       name="age" 
                       required 
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
+                      className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white"
                       placeholder="25"
                     />
                   </div>
                   <div>
-                    <label htmlFor="purpose" className="block text-sm font-bold text-slate-700 mb-2">교육목적</label>
+                    <label htmlFor="purpose" className="block text-sm font-bold text-slate-700 mb-1.5 md:mb-2">교육목적</label>
                     <select 
                       id="purpose" 
                       name="purpose" 
                       required
                       defaultValue=""
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white appearance-none"
+                      className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white appearance-none"
                     >
                       <option value="" disabled>선택해주세요</option>
                       <option value="취업준비">취업준비</option>
@@ -750,19 +752,19 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-2">문의내용</label>
+                  <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-1.5 md:mb-2">문의내용</label>
                   <textarea 
                     id="message" 
                     name="message" 
                     rows={3} 
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white resize-none"
+                    className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white resize-none"
                     placeholder="궁금하신 내용을 상세히 적어주세요."
                   ></textarea>
                 </div>
 
                 {/* Privacy Policy Checkbox */}
-                <div className="flex flex-col gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                <div className="flex flex-col gap-3 p-3 md:p-4 bg-slate-50 rounded-xl border border-slate-100">
                   <div className="flex items-start gap-3">
                     <div className="flex items-center h-5">
                       <input 
@@ -813,7 +815,7 @@ export default function App() {
 
                 <button 
                   type="submit" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-600/30 flex items-center justify-center gap-2"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-base md:text-lg py-3.5 md:py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-600/30 flex items-center justify-center gap-2"
                 >
                   문의 접수하기 <ArrowRight size={20} />
                 </button>

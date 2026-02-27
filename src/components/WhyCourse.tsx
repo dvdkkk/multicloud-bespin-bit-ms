@@ -45,7 +45,7 @@ export default function WhyCourse() {
         <div className="text-center mb-16">
           <p className="text-[#0052cc] font-bold mb-2">Why this course?</p>
           <h2 className="text-4xl font-black mb-4">이 과정이 특별한 이유</h2>
-          <p className="text-gray-600 font-medium">최적의 교육환경에서 기업이 원하는 실무 역량을 키우세요</p>
+          <p className="text-gray-600 font-medium">최적의 교육환경에서<br/>기업이 원하는 실무 역량을 키우세요</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">

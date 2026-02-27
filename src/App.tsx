@@ -269,7 +269,7 @@ export default function App() {
                 <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3 block">Course Overview</span>
                 <h2 className="text-4xl font-extrabold mb-6 leading-tight">멀티클라우드<br/>엔지니어 부트캠프</h2>
                 <p className="text-slate-600 mb-8">
-                  비전공자도 참여할 수 있도록 기본 기술 교육부터 시작합니다. 지원동기와 학습 의지를 중점적으로 평가합니다.
+                  비전공자도 참여할 수 있도록 기본 기술 교육부터 시작합니다. 지원동기/학습의지를 중점적으로 평가합니다.
                 </p>
               </div>
               <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
@@ -352,12 +352,12 @@ export default function App() {
       <section className="py-24 px-6 bg-slate-50">
         <FadeIn className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-16 text-slate-900">
-            <span className="text-[#00A8E8]">K-Digital Training</span> 선도기업 "베스핀글로벌"
+            <span className="text-[#00A8E8]">K-Digital Training</span> 선도기업'베스핀글로벌'
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
-                5,000엔터프라이즈가 선택한<br/>
+                5,000여 고객사가 선택한<br/>
                 <span className="text-[#00A8E8]">AI · Data · Cloud 파트너</span>
               </h3>
               <p className="text-xl font-bold text-slate-900 mb-6 leading-relaxed">

@@ -29,6 +29,10 @@ export default function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
+    if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
+      window.location.href = window.location.href.replace('http:', 'https:');
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };

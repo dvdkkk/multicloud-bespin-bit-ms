@@ -366,6 +366,15 @@ export default function App() {
             </div>
           </div>
         </FadeIn>
+        
+        <FadeIn delay={0.2} className="max-w-7xl mx-auto mt-16 flex justify-center">
+          <button 
+            onClick={() => scrollTo('contact-form')}
+            className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-5 rounded-full font-black text-xl transition-all shadow-2xl hover:scale-105 flex items-center justify-center gap-3 group"
+          >
+            지금 바로 지원하기 <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+        </FadeIn>
       </section>
 
       {/* Target Audience */}
@@ -554,6 +563,15 @@ export default function App() {
               </div>
             </div>
           </div>
+
+          <FadeIn delay={0.2} className="mt-16 flex justify-center">
+            <button 
+              onClick={() => scrollTo('contact-form')}
+              className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-5 rounded-full font-black text-xl transition-all shadow-2xl hover:scale-105 flex items-center justify-center gap-3 group"
+            >
+              지금 바로 지원하기 <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </FadeIn>
         </FadeIn>
       </section>
 
@@ -644,6 +662,15 @@ export default function App() {
               </div>
             ))}
           </div>
+
+          <FadeIn delay={0.2} className="mt-16 flex justify-center">
+            <button 
+              onClick={() => scrollTo('contact-form')}
+              className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-5 rounded-full font-black text-xl transition-all shadow-2xl hover:scale-105 flex items-center justify-center gap-3 group"
+            >
+              지금 바로 지원하기 <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </FadeIn>
         </FadeIn>
       </section>
 
@@ -886,12 +913,11 @@ export default function App() {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">문의내용</label>
+                      <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">문의내용 (선택)</label>
                       <textarea 
                         id="message" 
                         name="message" 
                         rows={2} 
-                        required
                         className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white resize-none"
                         placeholder="궁금하신 내용을 상세히 적어주세요."
                       ></textarea>

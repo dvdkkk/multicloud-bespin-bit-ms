@@ -842,14 +842,15 @@ export default function App() {
                     
                     <div>
                       <label htmlFor="course" className="block text-sm font-bold text-slate-700 mb-1 md:mb-1.5">과정명</label>
-                      <select 
+                      <input 
+                        type="text" 
                         id="course" 
-                        name="course" 
-                        defaultValue="멀티클라우드 베스핀글로벌"
-                        className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-slate-50 focus:bg-white appearance-none"
-                      >
-                        <option value="멀티클라우드 베스핀글로벌">멀티클라우드 베스핀글로벌</option>
-                      </select>
+                        name="과정명" 
+                        defaultValue="베스핀글로벌-멀티클라우드엔지니어" 
+                        readOnly
+                        className="w-full px-4 py-2 md:py-2.5 rounded-xl border border-slate-200 bg-slate-100 text-slate-800 font-semibold focus:outline-none cursor-default"
+                      />
+                      <input type="hidden" name="course" value="베스핀글로벌-멀티클라우드엔지니어" />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">

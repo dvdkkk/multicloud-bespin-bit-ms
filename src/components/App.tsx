@@ -25,7 +25,6 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
 
   useEffect(() => {
@@ -47,35 +46,30 @@ export default function App() {
     setIsMobileMenuOpen(false);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
     
     const form = e.currentTarget;
+    const actionUrl = form.action || "https://inputhaven.com/api/v1/submit";
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
     
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      
-      if (response.ok) {
-        setIsSubmitSuccess(true);
-        form.reset();
-      } else {
-        alert("문의 접수 중 오류가 발생했습니다. 다시 시도해주세요.");
-      }
-    } catch (error) {
-      alert("문의 접수 중 오류가 발생했습니다. 다시 시도해주세요.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    // 낙관적 UI (Optimistic UI): 서버 응답을 기다리지 않고 즉시 완료 화면 표시
+    setIsSubmitSuccess(true);
+    form.reset();
+
+    // 백그라운드 전송 및 keepalive 설정으로 페이지 이동/종료 시에도 데이터 전송 보장
+    fetch(actionUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+      keepalive: true,
+    }).catch((error) => {
+      console.error("문의 데이터 백그라운드 전송 오류:", error);
+    });
   };
 
   return (
@@ -823,14 +817,14 @@ export default function App() {
                   <div className="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6">
                     <CheckCircle2 size={40} />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">문의신청이 완료되었습니다</h3>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">상담 신청이 완료되었습니다!</h3>
                   <p className="text-slate-600 mb-8">
                     빠른 시일 내에 담당자가 연락드리겠습니다.<br/>
                     관심 가져주셔서 감사합니다.
                   </p>
                   <button 
                     onClick={() => setIsSubmitSuccess(false)}
-                    className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors"
+                    className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors cursor-pointer"
                   >
                     새로운 문의 남기기
                   </button>
@@ -842,7 +836,8 @@ export default function App() {
                     <p className="text-slate-500">빠른 시일 내에 담당자가 연락드리겠습니다.</p>
                   </div>
 
-                  <form action="https://submit-form.com/QUP7IIe7z" method="POST" className="space-y-3 md:space-y-4" onSubmit={handleSubmit}>
+                  <form action="https://inputhaven.com/api/v1/submit" method="POST" className="space-y-3 md:space-y-4" onSubmit={handleSubmit}>
+                    <input type="hidden" name="_form_id" value="914168973e93bda60f4eac1e7cbe1449" />
                     <input type="hidden" name="_subject" value="베스핀글로벌 부트캠프 상담 신청" />
                     
                     <div>
@@ -975,12 +970,9 @@ export default function App() {
 
                     <button 
                       type="submit" 
-                      disabled={isSubmitting}
-                      className={`w-full ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'} text-white font-bold text-base md:text-lg py-3.5 md:py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-600/30 flex items-center justify-center gap-2`}
+                      className="w-full bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white font-bold text-base md:text-lg py-3.5 md:py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-600/30 flex items-center justify-center gap-2 cursor-pointer"
                     >
-                      {isSubmitting ? '접수 중...' : (
-                        <>문의 접수하기 <ArrowRight size={20} /></>
-                      )}
+                      문의 접수하기 <ArrowRight size={20} />
                     </button>
                   </form>
                 </>
